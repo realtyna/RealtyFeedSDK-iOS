@@ -1,2 +1,3 @@
-# RealtyFeedSDK-iOS
-RealtyFeed SDK for iOS app
+# RealtyFeedSDK
+
+A description of this package.
