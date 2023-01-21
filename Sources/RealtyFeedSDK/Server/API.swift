@@ -14,15 +14,10 @@ extension RealtyFeedSDK {
     public class API: IRFServer {
         public static let instance = API()
         
-        fileprivate func callErrorMessage(_ callback: ((String, Data) -> Void), message: String) {
-            let str = "{\"success\": false, \"data\": {\"message\":\"\(message)\"}}"
-            callback(str,str.data(using: String.Encoding.utf8)!)
-        }
-        
-        public func post(_ route: String, parameters : [String:Any], receiver : @escaping ServerResponse) {
+        fileprivate func post(_ route: String, parameters : [String:Any], receiver : @escaping ServerResponse) {
             Do(route, parameters: parameters, method: "post", receiver: receiver)
         }
-        public func get(_ route: String, receiver : @escaping ServerResponse) {
+        fileprivate func get(_ route: String, receiver : @escaping ServerResponse) {
             Do(route, parameters: nil, method: "get", receiver: receiver)
         }
         
@@ -56,35 +51,7 @@ extension RealtyFeedSDK {
             semaphore.wait()
         }
         
-        /*
-         * Just for debug
-         */
-        fileprivate func processResponse(_ params: [String:Any]?, response: URLResponse?, data: Data?, error: Error?, method: String, url:String, receiver : @escaping ServerResponse) {
-            if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                print("<REQUEST.\(method)> ==========================")
-                print("<URL>\(url)</URL>")
-                if method.lowercased() == "post" {
-                    print("<PARAMS>\n\(params ?? [:])\n</PARAMS>")
-                }
-                print("<ERROR>")
-                if let data = data, let res = String(data: data, encoding: String.Encoding.utf8) {
-                    print(res)
-                }
-                print("</ERROR>")
-                print("</REQUEST> ==========================")
-                receiver(nil, error)
-                return
-            }
-            
-            guard let data = data else {
-                receiver(nil, nil)
-                return
-            }
-            
-            receiver(data, nil)
-        }
-        
-        func getListings(top: Int = 200,
+        public func getListings(top: Int = 200,
                          select: String = "Latitude,Longitude,ListingId,ListPrice,ListingKey",
                          filter: [String:Any] = [:],
                          skip: String? = nil,
