@@ -25,11 +25,13 @@ extension RealtyFeedSDK {
             
             let semaphore = DispatchSemaphore (value: 0)
             
-            let url:String = "https://api.realtyfeed.com/\(route)"
+            let url:String = "https://mls-router1.p.rapidapi.com/\(route)"
             
             var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
             request.httpMethod = method.uppercased()
             request.setValue(RealtyFeedSDK.xApiKey, forHTTPHeaderField: "x-api-key")
+            request.setValue("e0cfca0c1emsh097a7f39a0125a0p1ba642jsn93d74b6170c8", forHTTPHeaderField: "X-RapidAPI-Key")
+            request.setValue("mls-router1.p.rapidapi.com", forHTTPHeaderField: "-RapidAPI-Host")
             
             if let params = parameters
                 , params.count > 0
