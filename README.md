@@ -23,7 +23,7 @@ YOUR-API-KEY with your RealtyFeedSDK API Key.
 Now you can call RealtyFeedSDK APIs anywhere of your project,
 
 ## Get Listings list
-'
+```swift
     RealtyFeedSDK.API.instance.getListings(receiver: { data, error in
         guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
             print("Failed to load listings!")
@@ -31,11 +31,10 @@ Now you can call RealtyFeedSDK APIs anywhere of your project,
         }
         print("Done! \(res)"
     })
-
-'
+```
 
 ## Get Property detail
-'
+```swift
     RealtyFeedSDK.API.instance.getProperty("P_5dba1fb94aa4055b9f29691f",receiver: { data, error in
         guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
             print("Failed to load property!")
@@ -43,6 +42,5 @@ Now you can call RealtyFeedSDK APIs anywhere of your project,
         }
         print("Done! \(res)"
     })
-
-'
+```
 
