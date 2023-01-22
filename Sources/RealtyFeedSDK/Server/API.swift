@@ -116,10 +116,14 @@ extension RealtyFeedSDK {
                         select: "ListingId,Latitude,Longitude,ListPrice,ListingKey,BuildingAreaTotal,PropertyType,PropertySubType,Media,ListAgentCellPhone,ListAgentEmail,ListOfficeName,ListAgentFirstName,ListAgentMiddleName,ListAgentLastName,BuildingName,StreetName,UnitNumber,City,StateOrProvince,PostalCode,Country",
                         filter: ["ListingId" : "eqv \(listingId)"]) { result, error in
                 guard let res = result, error == nil else {
-                    receiver(nil, error)
+                    DispatchQueue.main.async {
+                        receiver(nil, error)
+                    }
                     return
                 }
-                receiver(res, nil)
+                DispatchQueue.main.async {
+                    receiver(res, nil)
+                }
 
             }
   
@@ -138,10 +142,14 @@ extension RealtyFeedSDK {
         public func getProperty(_ listingId: String, receiver: @escaping (Data?, Error?) -> Void) {//RProperty
             get("reso-api/property/\(listingId)") { result, error in
                 guard let res = result, error == nil else {
-                    receiver(nil, error)
+                    DispatchQueue.main.async {
+                        receiver(nil, error)
+                    }
                     return
                 }
-                receiver(res, nil)
+                DispatchQueue.main.async {
+                    receiver(res, nil)
+                }
             }
         }
     }
