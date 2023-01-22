@@ -5,8 +5,8 @@ This is RealtyFeedSDK for iOS apps.
 # Setup
 ## Step 1. Add RealtyFeedSDK to your project
 There are two ways to add the RealtyFeedSDK into your project:
-A) Add RealtyFeedSDK from the xcode package manager via its github URL
-B) Download the RealtyFeedSDK latest release from Github and add it as local package 
+* A) Add RealtyFeedSDK from the xcode package manager via its github URL
+* B) Download the RealtyFeedSDK latest release from Github and add it as local package 
 
 ## Step 2. Add the RealtyFeedSDK Initialization Code
 Add the RealtyFeedSDK initialization code to didFinishLaunchingWithOptions.
