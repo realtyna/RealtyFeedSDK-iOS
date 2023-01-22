@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-cF-7H1">
-                                <rect key="frame" x="16" y="202" width="361" height="566"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-cF-7H1">
+                                <rect key="frame" x="16" y="252" width="361" height="516"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -54,39 +54,63 @@
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtT-iU-Nnn">
-                                <rect key="frame" x="211.00000000000003" y="160" width="94.333333333333343" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YOUR REALTYFEED API KEY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZo-b8-Ejm">
+                                <rect key="frame" x="16" y="160" width="361" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="M4e-5V-Xpd"/>
+                                    <constraint firstAttribute="height" constant="34" id="YbE-OA-RZB"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Fetch Data">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="btnReLoadDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lk0-rN-C5k"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-v2-lKq">
-                                <rect key="frame" x="16" y="161" width="187" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-db-lBa">
+                                <rect key="frame" x="16" y="210" width="361" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtT-iU-Nnn">
+                                        <rect key="frame" x="195" y="0.0" width="94.333333333333314" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="M4e-5V-Xpd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Fetch Data">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="btnReLoadDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lk0-rN-C5k"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-v2-lKq">
+                                        <rect key="frame" x="0.0" y="1" width="187" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="7KA-Bt-2T2"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="getListings"/>
+                                            <segment title="getProperty"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="sgDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="YxR-2h-cFV"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-g5-ijs">
+                                        <rect key="frame" x="297.33333333333331" y="7" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Pin-xv-0JC"/>
+                                            <constraint firstAttribute="width" constant="20" id="oQ9-Dc-qf2"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="7KA-Bt-2T2"/>
+                                    <constraint firstItem="CtT-iU-Nnn" firstAttribute="leading" secondItem="Wue-v2-lKq" secondAttribute="trailing" constant="8" id="6br-mO-zfr"/>
+                                    <constraint firstItem="Wue-v2-lKq" firstAttribute="leading" secondItem="0eh-db-lBa" secondAttribute="leading" id="GRJ-R9-n0l"/>
+                                    <constraint firstAttribute="height" constant="34" id="UW4-18-Psb"/>
+                                    <constraint firstItem="2Jc-g5-ijs" firstAttribute="leading" secondItem="CtT-iU-Nnn" secondAttribute="trailing" constant="8" symbolic="YES" id="aDR-Jz-Ymj"/>
+                                    <constraint firstItem="CtT-iU-Nnn" firstAttribute="top" secondItem="0eh-db-lBa" secondAttribute="top" id="idW-Tg-yaY"/>
+                                    <constraint firstItem="Wue-v2-lKq" firstAttribute="top" secondItem="0eh-db-lBa" secondAttribute="top" constant="1" id="qQR-F2-aEV"/>
+                                    <constraint firstItem="2Jc-g5-ijs" firstAttribute="centerY" secondItem="CtT-iU-Nnn" secondAttribute="centerY" id="r0v-Rf-BPd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wue-v2-lKq" secondAttribute="bottom" constant="2" id="zNa-jz-ya8"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="getListings"/>
-                                    <segment title="getProperty"/>
-                                </segments>
-                                <connections>
-                                    <action selector="sgDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="YxR-2h-cFV"/>
-                                </connections>
-                            </segmentedControl>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-g5-ijs">
-                                <rect key="frame" x="313.33333333333331" y="167" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Pin-xv-0JC"/>
-                                    <constraint firstAttribute="width" constant="20" id="oQ9-Dc-qf2"/>
-                                </constraints>
-                            </activityIndicatorView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,27 +119,28 @@
                             <constraint firstItem="kZo-eN-cAO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2QQ-Yi-kKm"/>
                             <constraint firstItem="yKM-hD-JCl" firstAttribute="top" secondItem="6YW-cF-7H1" secondAttribute="bottom" constant="16" id="4Oz-xC-fow"/>
                             <constraint firstItem="yxX-1O-WdG" firstAttribute="top" secondItem="kZo-eN-cAO" secondAttribute="bottom" id="4Rd-sL-yCl"/>
+                            <constraint firstItem="0eh-db-lBa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5mO-G9-QXd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yKM-hD-JCl" secondAttribute="trailing" constant="16" id="6Ei-RJ-eKo"/>
                             <constraint firstItem="yKM-hD-JCl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7IZ-Ni-oOi"/>
-                            <constraint firstItem="Wue-v2-lKq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="O0e-aG-7oi"/>
+                            <constraint firstItem="iZo-b8-Ejm" firstAttribute="top" secondItem="yxX-1O-WdG" secondAttribute="bottom" constant="16" id="IhJ-7w-c7E"/>
                             <constraint firstItem="yKM-hD-JCl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OKs-ZP-wMA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6YW-cF-7H1" secondAttribute="trailing" constant="16" id="QEG-LH-qxJ"/>
-                            <constraint firstItem="2Jc-g5-ijs" firstAttribute="leading" secondItem="CtT-iU-Nnn" secondAttribute="trailing" constant="8" symbolic="YES" id="TC1-mL-e7v"/>
-                            <constraint firstItem="Wue-v2-lKq" firstAttribute="top" secondItem="yxX-1O-WdG" secondAttribute="bottom" constant="17" id="aMd-3V-7uz"/>
-                            <constraint firstItem="6YW-cF-7H1" firstAttribute="top" secondItem="CtT-iU-Nnn" secondAttribute="bottom" constant="8" id="db7-Fk-6Ap"/>
+                            <constraint firstItem="0eh-db-lBa" firstAttribute="top" secondItem="iZo-b8-Ejm" secondAttribute="bottom" constant="16" id="V99-eX-iFf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kZo-eN-cAO" secondAttribute="trailing" constant="16" id="f9q-Jg-NeO"/>
-                            <constraint firstItem="2Jc-g5-ijs" firstAttribute="centerY" secondItem="CtT-iU-Nnn" secondAttribute="centerY" id="fdb-J1-VyT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yxX-1O-WdG" secondAttribute="trailing" constant="16" id="hgW-f8-Ol7"/>
+                            <constraint firstItem="6YW-cF-7H1" firstAttribute="top" secondItem="0eh-db-lBa" secondAttribute="bottom" constant="8" id="hpb-PL-sNH"/>
                             <constraint firstItem="yxX-1O-WdG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rqk-5n-huo"/>
-                            <constraint firstItem="CtT-iU-Nnn" firstAttribute="top" secondItem="yxX-1O-WdG" secondAttribute="bottom" constant="16" id="vMf-Qy-4HW"/>
-                            <constraint firstItem="CtT-iU-Nnn" firstAttribute="leading" secondItem="Wue-v2-lKq" secondAttribute="trailing" constant="8" id="wbL-CC-hdb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iZo-b8-Ejm" secondAttribute="trailing" constant="16" id="t2k-0y-tmV"/>
                             <constraint firstItem="kZo-eN-cAO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="xAj-eF-PxO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0eh-db-lBa" secondAttribute="trailing" constant="16" id="xE2-rX-GkA"/>
+                            <constraint firstItem="iZo-b8-Ejm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yBz-T1-thk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnReLoad" destination="CtT-iU-Nnn" id="Tgx-3O-lqF"/>
                         <outlet property="indicatorView" destination="2Jc-g5-ijs" id="2Mi-C7-EAl"/>
                         <outlet property="sg" destination="Wue-v2-lKq" id="1h6-Lj-EVx"/>
+                        <outlet property="tfAPIKey" destination="iZo-b8-Ejm" id="SoD-pI-uhQ"/>
                         <outlet property="tvResult" destination="6YW-cF-7H1" id="ENw-NE-p0K"/>
                     </connections>
                 </viewController>
