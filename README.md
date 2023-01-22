@@ -11,13 +11,13 @@ B) Download the RealtyFeedSDK latest release from Github and add it as local pac
 ## Step 2. Add the RealtyFeedSDK Initialization Code
 Add the RealtyFeedSDK initialization code to didFinishLaunchingWithOptions.
 Make sure to import the RealtyFeedSDK header:
-'
+```swift
 import RealtyFeedSDK
-'
+```
 
-'
+```swift
 RealtyFeedSDK.initial("YOUR-API-KEY")
-'
+```
 YOUR-API-KEY with your RealtyFeedSDK API Key.
 
 Now you can call RealtyFeedSDK APIs anywhere of your project,
