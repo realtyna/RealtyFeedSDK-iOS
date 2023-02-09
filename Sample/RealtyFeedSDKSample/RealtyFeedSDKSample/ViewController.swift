@@ -19,7 +19,6 @@ class ViewController: UIViewController {
 
     var dateStart = Date()
 
-    let TAG = "RealtyFeed-Sample"
     fileprivate func fetchList() {
         guard let apiKey = tfAPIKey.text else {
             return
@@ -33,10 +32,10 @@ class ViewController: UIViewController {
             let dateString = self.calcDatesDiff()
             self.hideLoading()
             guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
-                self.tvResult.text = "\(self.TAG) (\(dateString)): Failed to load listings!"
+                self.tvResult.text = "Failed in \(dateString) seconds. \n\nFailed to load listings!"
                 return
             }
-            self.tvResult.text = "\(self.TAG) (\(dateString)): Done! \n\n\(res)"
+            self.tvResult.text = "Done in \(dateString) seconds \n\n\(res)"
         })
     }
     fileprivate func fetchProperty() {
@@ -52,10 +51,10 @@ class ViewController: UIViewController {
             let dateString = self.calcDatesDiff()
             self.hideLoading()
             guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
-                self.tvResult.text = "\(self.TAG) (\(dateString)): Failed to load property!"
+                self.tvResult.text = "Failed in \(dateString) seconds. \n\nFailed to load property!"
                 return
             }
-            self.tvResult.text = "\(self.TAG) (\(dateString)): Done! \n\n\(res)"
+            self.tvResult.text = "Done in \(dateString) seconds \n\n\(res)"
         })
     }
     
