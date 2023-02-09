@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-cF-7H1">
-                                <rect key="frame" x="16" y="252" width="361" height="516"/>
+                                <rect key="frame" x="16" y="282" width="361" height="486"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -62,8 +62,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YOUR RAPID API KEY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7we-81-XW3">
+                                <rect key="frame" x="16" y="198" width="361" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="QH0-VT-OeN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-db-lBa">
-                                <rect key="frame" x="16" y="210" width="361" height="34"/>
+                                <rect key="frame" x="16" y="240" width="361" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtT-iU-Nnn">
                                         <rect key="frame" x="195" y="0.0" width="94.333333333333314" height="34"/>
@@ -125,10 +133,13 @@
                             <constraint firstItem="iZo-b8-Ejm" firstAttribute="top" secondItem="yxX-1O-WdG" secondAttribute="bottom" constant="16" id="IhJ-7w-c7E"/>
                             <constraint firstItem="yKM-hD-JCl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OKs-ZP-wMA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6YW-cF-7H1" secondAttribute="trailing" constant="16" id="QEG-LH-qxJ"/>
-                            <constraint firstItem="0eh-db-lBa" firstAttribute="top" secondItem="iZo-b8-Ejm" secondAttribute="bottom" constant="16" id="V99-eX-iFf"/>
+                            <constraint firstItem="0eh-db-lBa" firstAttribute="top" secondItem="7we-81-XW3" secondAttribute="bottom" constant="8" id="V99-eX-iFf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7we-81-XW3" secondAttribute="trailing" constant="16" id="Xkb-Fg-PIX"/>
+                            <constraint firstItem="7we-81-XW3" firstAttribute="top" secondItem="iZo-b8-Ejm" secondAttribute="bottom" constant="4" id="biG-Pz-fS8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kZo-eN-cAO" secondAttribute="trailing" constant="16" id="f9q-Jg-NeO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yxX-1O-WdG" secondAttribute="trailing" constant="16" id="hgW-f8-Ol7"/>
                             <constraint firstItem="6YW-cF-7H1" firstAttribute="top" secondItem="0eh-db-lBa" secondAttribute="bottom" constant="8" id="hpb-PL-sNH"/>
+                            <constraint firstItem="7we-81-XW3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kvw-QQ-XiZ"/>
                             <constraint firstItem="yxX-1O-WdG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rqk-5n-huo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iZo-b8-Ejm" secondAttribute="trailing" constant="16" id="t2k-0y-tmV"/>
                             <constraint firstItem="kZo-eN-cAO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="xAj-eF-PxO"/>
@@ -141,6 +152,7 @@
                         <outlet property="indicatorView" destination="2Jc-g5-ijs" id="2Mi-C7-EAl"/>
                         <outlet property="sg" destination="Wue-v2-lKq" id="1h6-Lj-EVx"/>
                         <outlet property="tfAPIKey" destination="iZo-b8-Ejm" id="SoD-pI-uhQ"/>
+                        <outlet property="tfRapidAPIKey" destination="7we-81-XW3" id="9Ra-NO-T5u"/>
                         <outlet property="tvResult" destination="6YW-cF-7H1" id="ENw-NE-p0K"/>
                     </connections>
                 </viewController>

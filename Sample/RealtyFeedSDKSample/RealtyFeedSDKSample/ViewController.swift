@@ -14,18 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var sg: UISegmentedControl!
     @IBOutlet weak var tfAPIKey: UITextField!
     
+    @IBOutlet weak var tfRapidAPIKey: UITextField!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
 
     var dateStart = Date()
 
-    let TAG = "RealtyFeed-Sample"
     fileprivate func fetchList() {
-        guard let apiKey = tfAPIKey.text else {
+        guard let apiKey = tfAPIKey.text, let rapidApiKey = tfRapidAPIKey.text else {
             return
         }
-        saveKey(apiKey)
-        RealtyFeedSDK.initial(apiKey)
+        saveKey(apiKey, rapidApiKey)
+        RealtyFeedSDK.initial(apiKey, rapidApiKey)
 
         self.showLoading()
         dateStart = Date()
@@ -33,18 +33,19 @@ class ViewController: UIViewController {
             let dateString = self.calcDatesDiff()
             self.hideLoading()
             guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
-                self.tvResult.text = "\(self.TAG) (\(dateString)): Failed to load listings!"
+                self.tvResult.text = "Failed in \(dateString) seconds. \n\nFailed to load listings!"
                 return
             }
-            self.tvResult.text = "\(self.TAG) (\(dateString)): Done! \n\n\(res)"
+            self.tvResult.text = "Done in \(dateString) seconds \n\n\(res)"
         })
     }
+    
     fileprivate func fetchProperty() {
-        guard let apiKey = tfAPIKey.text else {
+        guard let apiKey = tfAPIKey.text, let rapidApiKey = tfRapidAPIKey.text else {
             return
         }
-        saveKey(apiKey)
-        RealtyFeedSDK.initial(apiKey)
+        saveKey(apiKey, rapidApiKey)
+        RealtyFeedSDK.initial(apiKey, rapidApiKey)
         
         self.showLoading()
         dateStart = Date()
@@ -52,10 +53,10 @@ class ViewController: UIViewController {
             let dateString = self.calcDatesDiff()
             self.hideLoading()
             guard let data = data, let res = String(data: data, encoding: String.Encoding.utf8) else {
-                self.tvResult.text = "\(self.TAG) (\(dateString)): Failed to load property!"
+                self.tvResult.text = "Failed in \(dateString) seconds. \n\nFailed to load property!"
                 return
             }
-            self.tvResult.text = "\(self.TAG) (\(dateString)): Done! \n\n\(res)"
+            self.tvResult.text = "Done in \(dateString) seconds \n\n\(res)"
         })
     }
     
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sgDidChange(self)
-        tfAPIKey.text = getKey()
+        reloadKeys()
     }
 
 
@@ -121,14 +122,17 @@ RealtyFeedSDK.API.instance.getProperty("P_5dba1fb94aa4055b9f29691f", receiver: {
         btnReLoad.setTitle("Fetch Data", for: .normal)
     }
 
-    func saveKey(_ key: String){
+    func saveKey(_ xAPIKey: String,_ rapidAPIKey: String){
         let defaults = UserDefaults.standard
-        defaults.set(key, forKey: "X-API-KEY")
+        defaults.set(xAPIKey, forKey: "X-API-KEY")
+        defaults.set(rapidAPIKey, forKey: "RAPID-API-KEY")
         defaults.synchronize()
     }
-    func getKey() -> String?{
+    
+    func reloadKeys(){
         let defaults = UserDefaults.standard
-        return defaults.string(forKey: "X-API-KEY")
+        tfAPIKey.text = defaults.string(forKey: "X-API-KEY")
+        tfRapidAPIKey.text = defaults.string(forKey: "RAPID-API-KEY")
     }
 }
 

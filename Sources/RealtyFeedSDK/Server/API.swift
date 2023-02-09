@@ -30,8 +30,8 @@ extension RealtyFeedSDK {
             var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
             request.httpMethod = method.uppercased()
             request.setValue(RealtyFeedSDK.xApiKey, forHTTPHeaderField: "x-api-key")
-            request.setValue("e0cfca0c1emsh097a7f39a0125a0p1ba642jsn93d74b6170c8", forHTTPHeaderField: "X-RapidAPI-Key")
-            request.setValue("mls-router1.p.rapidapi.com", forHTTPHeaderField: "-RapidAPI-Host")
+            request.setValue(RealtyFeedSDK.rapidApiKey, forHTTPHeaderField: "X-RapidAPI-Key")
+            request.setValue("mls-router1.p.rapidapi.com", forHTTPHeaderField: "x-RapidAPI-Host")
             
             if let params = parameters
                 , params.count > 0
